@@ -1,5 +1,5 @@
 #import tensorflow.keras as keras
-import nn
+import NeuralNetwork
 
 '''
 # Load the MNIST dataset
@@ -12,6 +12,5 @@ print("Test images shape:", test_images.shape)  # (10000, 28, 28)
 print("Test labels shape:", test_labels.shape)  # (10000,)
 '''
 
-mynet = nn.NeuralNetwork([3, 3, 2, 2])
-#mynet.visualize()
-mynet.forward_propagation([1, 0, 1])
+MNIST_network = NeuralNetwork.NeuralNetwork([3, 3, 2, 2])
+print(MNIST_network.forward_propagation([1, 0, 1]))
