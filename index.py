@@ -1,16 +1,11 @@
-#import tensorflow.keras as keras
-import NeuralNetwork
+import ml
+import data
 
-'''
-# Load the MNIST dataset
-(train_images, train_labels), (test_images, test_labels) = keras.datasets.mnist.load_data()
+training_data = data.generate(100)
+testing_data = data.generate(3)
 
-# Print the shape of the training and test data
-print("Training images shape:", train_images.shape)  # (60000, 28, 28)
-print("Training labels shape:", train_labels.shape)  # (60000,)
-print("Test images shape:", test_images.shape)  # (10000, 28, 28)
-print("Test labels shape:", test_labels.shape)  # (10000,)
-'''
+net = ml.NeuralNetwork((4, 4, 1))
+net.train(training_data['inputs'], training_data['outputs'], 1000)
+print(net.predict(testing_data['inputs']))
 
-MNIST_network = NeuralNetwork.NeuralNetwork([3, 3, 2, 2])
-print(MNIST_network.forward_propagation([1, 0, 1]))
+print(testing_data['outputs'])
