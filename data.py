@@ -16,6 +16,6 @@ def generate(amount):
     for _ in range(amount):
         square = np.array([np.random.random() for _ in range(4)])
         inputs.append(square)
-        brightness = np.array(np.mean(square))
+        brightness = np.array([[np.mean(square)]])
         outputs.append(brightness)
     return dict(inputs=inputs, outputs=outputs)
